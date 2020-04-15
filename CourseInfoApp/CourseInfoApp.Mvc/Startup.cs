@@ -12,6 +12,7 @@ using CourseInfoApp.Mvc.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CourseInfo.Infra.Data.Context;
 
 namespace CourseInfoApp.Mvc
 {
@@ -32,6 +33,13 @@ namespace CourseInfoApp.Mvc
                     Configuration.GetConnectionString("CourseIdentityDBConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDbContext<CourseDBContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("CourseDBConnection"));
+            });
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
