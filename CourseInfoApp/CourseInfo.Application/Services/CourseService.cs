@@ -18,7 +18,10 @@ namespace CourseInfo.Application.Services
 
         public CourseViewModel GetCources()
         {
-            throw new NotImplementedException();
+            return new CourseViewModel
+            {
+                Courses = _courseRepository.GetCourses()
+            };
         }
     }
 }
