@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CourseInfo.Infra.Data\CourseInfo.Infra.Data.csproj" />
+    <ProjectReference Include="..\CourseInfo.Infra.IoC\CourseInfo.Infra.IoC.csproj" />
   </ItemGroup>
 
 </Project>

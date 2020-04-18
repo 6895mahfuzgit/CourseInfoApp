@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CourseInfo.Infra.Data.Context;
+using CourseInfo.Infra.IoC;
 
 namespace CourseInfoApp.Mvc
 {
@@ -42,6 +43,13 @@ namespace CourseInfoApp.Mvc
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            RegisterServices(services);
+        }
+
+        private void RegisterServices(IServiceCollection services)
+        {
+            DependencyContainer.RegisterSercvices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
